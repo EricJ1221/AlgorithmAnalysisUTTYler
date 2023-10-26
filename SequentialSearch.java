@@ -40,11 +40,30 @@ public class SequentialSearch {
      * Input: An array A[0.. n-1] of order-able elements and a key K
      * Output: Returns the element of A at K index
      * or -1 if there are no matching elements
+     *
+     * NOTE: I need to add in a separate array and put 1s or 0s into the spaces that hold the
+     *       key value so that I can then print out the index of the key values
      */
     public static int[] sequentialSearchForAllOccurrences(int[] arr, int K) {
         List<Integer> occurrences = new ArrayList<>();
 
         for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == K) {
+                occurrences.add(1);
+            }
+            else {
+                occurrences.add(0);
+            }
+        }
+
+        int[] result = new int[occurrences.size()];
+        for (int i = 0; i < occurrences.size(); i++) {
+            result[i] = occurrences.get(i);
+        }
+        return result;
+    }
+}
+/*for (int i = 0; i < arr.length; i++) {
             if (arr[i] == K) {
                 occurrences.add(i);
             }
@@ -55,6 +74,4 @@ public class SequentialSearch {
             result[i] = arr[occurrences.get(i)];
         }
 
-        return result;
-    }
-}
+        return result;*/
