@@ -19,8 +19,6 @@ public class QuickSort {
         return Comparisons;
     }
     public static void quickSort(int[] arr){ // l = left indices, r = right indices
-        Comparisons = 0;
-
         if ( arr == null || arr.length <=1){
             return; // already sorted or invalid input, needed to stop function
         }
@@ -28,10 +26,9 @@ public class QuickSort {
     }
 
     private static void quickSort(int[] arr, int l, int r){
-        Comparisons++;
         if(l < r){
+            Comparisons++;
             int partitionIndex = Partition(arr, l, r);
-
 
             quickSort(arr, l, partitionIndex - 1);
             quickSort(arr, partitionIndex + 1, r);
@@ -53,13 +50,11 @@ public class QuickSort {
             Comparisons++;
             if (arr[j] <= s) {
                 i++;
-
                 int temp = arr[i]; // swap arr[i] and arr[j], beginning of sorting
                 arr[i] = arr[j];
                 arr[j] = temp;
             }
         }
-
         int temp = arr[i + 1]; // Swapping to put pivot in the correct position
         arr[i +1] = arr[r];
         arr[r] = temp;

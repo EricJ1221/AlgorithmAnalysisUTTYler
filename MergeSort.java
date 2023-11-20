@@ -8,13 +8,10 @@
 
 public class MergeSort {
     private static int Comparisons = 0;
-
     public static int getComparisons() {
         return Comparisons;
     }
     public static void mergeSort(int[] arr) {
-
-
         if (arr == null || arr.length <= 1) {
             //Comparisons++;
             return; // already sorted
@@ -36,14 +33,11 @@ public class MergeSort {
         mergeSort(C);
 
         merge(arr, B, C); // Call Merge function to repopulate arrays after sorting
-
     }
-
     private static void merge(int[] arr, int[] B, int[] C) {
         int i = 0;
         int j = 0;
         int k = 0;
-
 
         while (i < B.length && j < C.length) {
             Comparisons++;                      //increment comparison counter
@@ -68,7 +62,6 @@ public class MergeSort {
                 k++;
                 j++;
             }
-
         }
 }
 
