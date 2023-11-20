@@ -14,9 +14,9 @@ public class MergeSort {
     }
     public static void mergeSort(int[] arr) {
 
-        Comparisons = 0;
 
         if (arr == null || arr.length <= 1) {
+            //Comparisons++;
             return; // already sorted
         }
 
@@ -39,7 +39,6 @@ public class MergeSort {
 
     }
 
-
     private static void merge(int[] arr, int[] B, int[] C) {
         int i = 0;
         int j = 0;
@@ -47,32 +46,27 @@ public class MergeSort {
 
 
         while (i < B.length && j < C.length) {
-        Comparisons++;                      //increment comparison counter
+            Comparisons++;                      //increment comparison counter
             if (B[i] <= C[j]) {                 // Checks if the element at position one of left array
                 arr[k] = B[i];                  // is less than position one of right array
                 k++;
                 i++;
-
-            } else {
-                arr[k] = C[j];
+            }
+            else {
+                arr[k] = C[j]; // assignment, not a comparison
                 k++;
                 j++;
             }
-        Comparisons++;
-        }                              // need to make sure that B[i] is not greater than C[j]
+        }                                        // need to make sure that B[i] is not greater than C[j]
             while (i < B.length) {     // copies remaining elements Left side into array
                 arr[k] = B[i];
                 k++;
                 i++;
-                //Comparisons++;
             }
-
-
             while (j < C.length) {    // copies remaining elements Right side into array
                 arr[k] = C[j];
                 k++;
                 j++;
-                //Comparisons++;
             }
 
         }
